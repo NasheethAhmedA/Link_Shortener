@@ -4,10 +4,11 @@ from Schema import Link, Shortened
 from DataBase import LinkDB
 from fastapi import HTTPException
 
+
 app = FastAPI(
     title="Link Shortener Backend",
     description="A simple link shortener backend using FastAPI.",
-    version="0.1",
+    version="0.2",
 )
 
 db = LinkDB()
