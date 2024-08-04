@@ -1,6 +1,6 @@
 import random
 
-mapping = {
+mapping: dict[str:str] = {
     "A": "x",
     "B": "g",
     "C": "k",

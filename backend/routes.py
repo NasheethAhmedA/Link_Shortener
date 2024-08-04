@@ -16,9 +16,15 @@ def root(response: Response, Admin_Token: str = "") -> dict[str, str]:
     """
     Root endpoint of the application.
 
+    **Parameters**:
+    - *response (Response)*: The response object to set the status code if needed.
+    - *Admin_Token (str, optional)*: The token used for admin validation. Defaults to an empty string.
+
     **Returns**:
-    - *dict[str, str]*: A dictionary containing the result of the `db.show()` function.
-        (i.e) the current state of the database.
+    - *dict[str, str]*: A dictionary containing the result of the `db.show()` function, which represents the current state of the database.
+
+    **Raises**:
+    - *HTTPException*: If the provided Admin_Token is invalid, a 403 Forbidden status code is returned with a message.
     """
     if Admin_Token == config["ADMIN_VALIDATION_TOKEN"]:
         return db.show()
@@ -27,7 +33,7 @@ def root(response: Response, Admin_Token: str = "") -> dict[str, str]:
         return {"message": "Forbidden"}
 
 
-@router.get("/link/{short_link}", response_model=Link)
+@router.get("/{short_link}", response_model=Link)
 def get_original_link(short_link: str) -> Link:
     """
     Retrieve the original link associated with the given short link.
@@ -48,7 +54,7 @@ def get_original_link(short_link: str) -> Link:
         raise HTTPException(status_code=404, detail="Link not found")
 
 
-@router.post("/link/", response_model=Shortened)
+@router.post("/", response_model=Shortened)
 def create_link(link: Link) -> Shortened:
     """
     Create a shortened link.
