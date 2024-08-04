@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from Schema import Link
-import random
+from utils import LinkHash
 
 
 class LinkDB(BaseModel):
@@ -13,17 +13,10 @@ class LinkDB(BaseModel):
     data: dict[str, str] = {}
 
     def shorten(self, link: Link) -> str:
-        return "".join(
-            [
-                random.choice("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-                for s in range(5)
-            ]
-        )
+        return LinkHash(link.url)
 
     def set(self, value: Link) -> str:
         key = self.shorten(value)
-        while self._exists(key):
-            key = self.shorten(value)
         self.data[key] = value.url
         return key
 

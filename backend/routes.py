@@ -1,4 +1,4 @@
-from fastapi import APIRouter ,Response, status, HTTPException
+from fastapi import APIRouter, Response, status, HTTPException
 from Schema import Link, Shortened
 from DataBase import LinkDB
 from dotenv import dotenv_values
@@ -10,8 +10,9 @@ router = APIRouter()
 
 db = LinkDB()
 
+
 @router.get("/", response_model=dict[str, str])
-def root(response: Response, Admin_Token: str = "") -> dict[str, str]: 
+def root(response: Response, Admin_Token: str = "") -> dict[str, str]:
     """
     Root endpoint of the application.
 
@@ -24,6 +25,7 @@ def root(response: Response, Admin_Token: str = "") -> dict[str, str]:
     else:
         response.status_code = status.HTTP_403_FORBIDDEN
         return {"message": "Forbidden"}
+
 
 @router.get("/link/{short_link}", response_model=Link)
 def get_original_link(short_link: str) -> Link:
@@ -61,4 +63,4 @@ def create_link(link: Link) -> Shortened:
     if not validators.url(link.url):
         raise HTTPException(status_code=400, detail="Invalid URL")
     short_link = db.set(link)
-    return {"short_link": short_link}   
+    return {"short_link": short_link}
