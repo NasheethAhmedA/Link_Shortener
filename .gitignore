@@ -164,3 +164,7 @@ cython_debug/
 # loacl .bat files
 Activate.bat
 Wrap.bat
+
+# vercel configs
+vercel.json
+.vercel
