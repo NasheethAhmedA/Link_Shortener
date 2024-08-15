@@ -19,6 +19,7 @@ cd ../..
 Step 3:
 Install dependencies.
 pip install requirement.txt
+
 Step 4:
 Lauch the backend.
 
