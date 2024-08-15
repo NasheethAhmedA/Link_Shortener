@@ -6,6 +6,7 @@ A Link Shortner website made as a Project.
 Step 1:
 Clone the repo:
  git clone : https://github.com/NasheethAhmedA/Link_Shortener
+
 Step 2:
 
 Create a virtual environment. [optional]
