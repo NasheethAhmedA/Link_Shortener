@@ -10,17 +10,25 @@ Clone the repo:
 Step 2:
 
 Create a virtual environment. [optional]
+
 cd backend
+
 python -m venv env
+
 cd env/Scripts/
+
 activate
+
 cd ../..
 
 Step 3:
+
 Install dependencies.
+
 pip install requirement.txt
 
 Step 4:
+
 Lauch the backend.
 
 fastapi run main.py
