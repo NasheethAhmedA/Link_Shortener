@@ -2,10 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" , initial-scale=1.0">
-    <title>Link Shortener</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    
+    <title>URL Shortener</title>
 </head>
 <body>
-    
+    <div class="main">
+        <p>URL Shortener</p>
+        <input type="text" placeholder="Enter the Link Here" id="longurl">
+        <button id="shorten">Short it</button><br>
+        <input type="text" placeholder="Short Link" id="shorturl">
+        <button id="copy">
+            <span class="material-symbols-outlined">content_copy</span>
+        </button>
+    </div>
+    <footer>
+        <div class="contributors">
+            <h3>Contributors</h3>
+            <ul>
+                <li>
+                    <strong>Nasheeth Ahmed</strong> - <a href="https://github.com/NasheethAhmedA" target="_blank">@NashethAhmedA</a>
+                    <p>Developer specializing in backend development and open-source contributions.</p>
+                </li>
+                <li>
+                    <strong>Harsh Kumar Dubey </strong> - <a href="https://github.com/harshkumard315" target="_blank">@harshkumard315</a>
+                    <p>Developer specializing in frontend development and open-source contributions.</p>
+                </li>
+                <li> 
+                    <strong>Ansar Basha</strong> - <a href="https://github.com/" target="_blank">@</a>
+                    <p>Developer specializing in DevOps Deployment and open-source contributions</p>
+                </li>
+                <li>
+                    <strong>Kalai Ganesh</strong> - <a href="https://github.com/KalaiGanesh2005" target="_blank">@KalaiGanesh2005</a>
+                    <p><p>Specializing in project management and open-source contributions</p></p>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script src="logic.js"></script>
+    <script src="copy.js"></script>
 </body>
 </html>

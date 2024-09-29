@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #508c9b; 
+    font-family: Arial, sans-serif;
+    overflow-y: scroll; 
+    color: #EEEEEE; 
+}
+
+.main{
+    position: relative;
+    background-color: #134b70; 
+    height: 500px;
+    width: 500px;
+    margin: 50px auto; 
+    transform: translateY(0); 
+    border: 5px solid #201e43; 
+    border-radius: 20px;
+    text-align: center; 
+}
+
+#longurl{
+    margin-top: 20px; 
+    height: 40px;
+    width: 296px;
+    border: 2px solid #201e43; /* Dark border */
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: large;
+    font-family: monospace;
+    font-weight: bold;
+    background-color: #EEEEEE; 
+    color: #201e43; 
+}
+
+#shorten{
+    margin-top: 20px; 
+    height: 40px;
+    width: 80px;
+    border: 2px solid #201e43; 
+    border-radius: 10px;
+    font-size: large;
+    font-weight: bold;
+    font-family: monospace;
+    color: #EEEEEE; 
+    background-color: #201e43;
+}  
+
+#shorten:hover{
+    background-color: #134b70;
+}
+
+#shorturl{
+    margin-top: 20px; 
+    height: 40px;
+    width: 270px;
+    border: 2px solid #201e43; /* Dark border */
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 47px;
+    font-size: large;
+    font-family: monospace;
+    font-weight: bold;
+    background-color: #EEEEEE; 
+    color: #201e43; 
+}
+
+#copy{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    border: 2px solid #201e43; 
+    border-radius: 10px;
+    color: #EEEEEE; 
+    background-color: #134b70; 
+    margin-left: 5px; 
+}
+
+#copy:hover{
+    background-color: #201e43; 
+}
+
+.main p{
+    margin-top: 20px; 
+    height: 60px;
+    font-size: 50px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #201e43; 
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    background-color: #201e43; 
+    color: #EEEEEE; 
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer h3{
+    margin-bottom: 10px;
+    color: #EEEEEE; 
+}
+
+footer ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li{
+    margin: 10px 0;
+}
+
+footer ul li p{
+    margin: 5px 0;
+    font-size: 14px;
+    color: #CCCCCC; 
+}
+
+footer ul li a{
+    color: #EEEEEE; 
+    text-decoration: none;
+}
+
+footer ul li a:hover{
+    text-decoration: underline;
+}
