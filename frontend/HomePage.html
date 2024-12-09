@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link Shortener</title>
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body class="d-flex flex-fill">
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">
+        <span style="letter-spacing: 10px">Link</span>
+        <span class="mx-2">
+          <embed
+            src="Link_Shortener_logo.svg"
+            width="100"
+            height="-50"
+            type="image/svg+xml"
+            pluginspage="http://www.adobe.com/svg/viewer/install/"
+          />
+        </span>
+        <span style="letter-spacing: -4px">Shortener</span>
+      </h1>
+
+      <div class="card shadow-sm bg-light h-100">
+        <div class="card-body d-flex flex-column align-content-around justify-content-center">
+          <!-- Input for Long Link -->
+          <div class="mb-3">
+            <label for="longLink" class="form-label fw-bolder"
+              >Enter Long Link</label
+            >
+            <div class="input-group">
+              <input
+                type="text"
+                id="longLink"
+                class="form-control"
+                placeholder="Paste your long link here"
+              />
+              <button class="btn btn-primary" onclick="pasteLongLink()">
+                Paste
+              </button>
+            </div>
+          </div>
+          <!-- Output for Short Link -->
+          <div class="mb-3">
+            <label for="shortLink" class="form-label fw-bolder"
+              >Shortened Link</label
+            >
+            <div class="input-group">
+              <input
+                type="text"
+                id="shortLink"
+                class="form-control"
+                placeholder="Your shortened link will appear here"
+                readonly
+              />
+              <button class="btn btn-success" onclick="copyShortLink()">
+                Copy
+              </button>
+            </div>
+          </div>
+          <!-- Action Buttons -->
+          <div class="d-flex justify-content-center align-items-center">
+            <button class="btn btn-primary me-2" onclick="shortenLink()">
+              Shorten
+            </button>
+            <button class="btn btn-danger" onclick="resetFields()">
+              Reset
+            </button>
+          </div>
+        </div>
+        <!-- Link to GITHUB repo -->
+        <a
+          href="https://github.com/NasheethAhmedA/Link_Shortener"
+          class="btn btn-dark rounded-0"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <embed
+            src="github-mark-white.svg"
+            width="100"
+            height="100"
+            type="image/svg+xml"
+            pluginspage="http://www.adobe.com/svg/viewer/install/"
+          />
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Function to paste the long link
+      function pasteLongLink() {
+        navigator.clipboard
+          .readText()
+          .then((text) => {
+            document.getElementById("longLink").value = text;
+          })
+          .catch((err) => alert("Failed to paste: " + err));
+      }
+
+      // Function to copy the short link
+      function copyShortLink() {
+        const shortLink = document.getElementById("shortLink").value;
+        if (shortLink) {
+          navigator.clipboard
+            .writeText(shortLink)
+            .then(() => alert("Short link copied to clipboard!"))
+            .catch((err) => alert("Failed to copy: " + err));
+        } else {
+          alert("No short link to copy!");
+        }
+      }
+
+      async function shortenLink() {
+        const longLink = document.getElementById("longLink").value;
+        if (longLink) {
+          const result = await fetch(
+            "https://link-shortener-backend-r2jzsirr4-nasheeths-projects.vercel.app/",
+            {
+              method: "OPTIONS",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ url: longLink }),
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => data.short_link)
+            .catch((error) => {
+              alert("Internal Issues. Please try again later!");
+            });
+          document.getElementById("shortLink").value = result;
+        } else {
+          alert("Please enter a long link to shorten!");
+        }
+      }
+
+      // Function to reset fields
+      function resetFields() {
+        document.getElementById("longLink").value = "";
+        document.getElementById("shortLink").value = "";
+      }
+    </script>
+  </body>
+</html>
