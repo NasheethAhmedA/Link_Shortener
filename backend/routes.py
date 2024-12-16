@@ -70,3 +70,20 @@ def create_link(link: Link) -> Shortened:
         raise HTTPException(status_code=400, detail="Invalid URL")
     short_link = db.set(link)
     return {"short_link": short_link}
+
+@router.get("/short/", response_model=Shortened)
+def short_link(link: str) -> Shortened:
+    """
+    Create a shortened link.
+
+    **Parameters**:
+    - link (*Link*): The original link to be shortened.
+
+    **Returns**:
+    - *Shortened*: The response containing the shortened link.
+
+    """
+    if not validators.url(link):
+        raise HTTPException(status_code=400, detail="Invalid URL")
+    short_link = db.set(Link(url=link))
+    return {"short_link": short_link}

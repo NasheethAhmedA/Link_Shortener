@@ -28,7 +28,9 @@
       </h1>
 
       <div class="card shadow-sm bg-light h-100">
-        <div class="card-body d-flex flex-column align-content-around justify-content-center">
+        <div
+          class="card-body d-flex flex-column align-content-around justify-content-center"
+        >
           <!-- Input for Long Link -->
           <div class="mb-3">
             <label for="longLink" class="form-label fw-bolder"
@@ -119,22 +121,14 @@
       async function shortenLink() {
         const longLink = document.getElementById("longLink").value;
         if (longLink) {
-          const result = await fetch(
-            "https://link-shortener-backend-r2jzsirr4-nasheeths-projects.vercel.app/",
-            {
-              method: "OPTIONS",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ url: longLink }),
-            }
-          )
+          const result = await fetch("https://link-shortener-backend.vercel.app/short/?link=" + longLink)
             .then((response) => response.json())
             .then((data) => data.short_link)
             .catch((error) => {
               alert("Internal Issues. Please try again later!");
             });
-          document.getElementById("shortLink").value = result;
+          // trick that adapts to any domain in the future
+          document.getElementById("shortLink").value = window.location.href.slice(0, -22) + result;
         } else {
           alert("Please enter a long link to shorten!");
         }
