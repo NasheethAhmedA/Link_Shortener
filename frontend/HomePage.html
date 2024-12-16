@@ -128,7 +128,7 @@
               alert("Internal Issues. Please try again later!");
             });
           // trick that adapts to any domain in the future
-          document.getElementById("shortLink").value = window.location.href.slice(0, -22) + result;
+          document.getElementById("shortLink").value = window.location.href.slice(0, -22) + "?" + result;
         } else {
           alert("Please enter a long link to shorten!");
         }
