@@ -3,6 +3,7 @@
 A simple and efficient **Link Shortener** that allows users to convert long URLs into short, easy-to-share links. This project is designed for speed, usability, and scalability, making it an ideal solution for personal and professional use.
 
 ### 🌟 Features
+- **Custom Short Links** – Generate unique or customizable short URLs.
 - **Analytics Tracking** – Monitor the number of clicks and traffic sources.
 - **Expiration Dates** – Set an expiration time for short links if needed.
 - **API Support** – Generate short links programmatically with an API.
@@ -26,19 +27,30 @@ A simple and efficient **Link Shortener** that allows users to convert long URLs
 - Simplifying URLs for offline use (QR codes, print media).
 - Organizing and managing frequently used links.
 
-### 📌 Get Started
-- Clone the repository:  
-  ```sh
-  git clone https://github.com/yourusername/link-shortener.git
-  ```
-- Install dependencies:  
-  ```sh
-  npm install  # or pip install -r requirements.txt (for Python)
-  ```
-- Run the application:  
-  ```sh
-  npm start  # or python app.py
-  ```
+### 🚀 Steps to Launch the Backend
+#### Step 1: Clone the repo
+```sh
+git clone https://github.com/NasheethAhmedA/Link_Shortener
+```
+
+#### Step 2: Create a virtual environment (Optional)
+```sh
+cd backend
+python -m venv env
+cd env/Scripts/
+activate
+cd ../..
+```
+
+#### Step 3: Install dependencies
+```sh
+pip install -r requirements.txt
+```
+
+#### Step 4: Launch the backend
+```sh
+fastapi run main.py
+```
+Now the backend is launched. Watch the terminal for logs.
 
 Enjoy a fast and easy-to-use link shortener! 🚀
-
