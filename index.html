@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        window.onload = async function() {
+            const params = window.location.search;
+            const redirectUrl = params.split('?')[1];
+            if (redirectUrl) {
+                let redirect = await fetch(`https://link-shortener-backend.vercel.app/${redirectUrl}`)
+                    .then(response => response.json())
+                    .then(data => data.url)
+                    .catch(error => {
+                        alert('Internal Issues. Redirecting to Home Page...');
+                        window.location.href = 'frontend/HomePage.html'
+                    });
+                if (redirect !== undefined) {
+                    window.location.href = redirect;
+                } else {
+                    window.location.href = 'frontend/HomePage.html';
+                }
+            } else {
+                window.location.href = 'frontend/HomePage.html';
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
