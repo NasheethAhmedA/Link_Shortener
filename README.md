@@ -10,8 +10,8 @@ A simple and efficient **Link Shortener** that allows users to convert long URLs
 - **API Support** – Generate short links programmatically with an API.
   
 ### 🛠️ Tech Stack
-- **Frontend:** HTML, CSS, JavaScript (React)
-- **Backend:** Node.js, Express, Python (Flask/Django)
+- **Frontend:** HTML, CSS (Bootstrap), JavaScript
+- **Backend:** Python (FastAPI)
 - **Database:** MongoDB
 
 ### 🚀 How It Works
